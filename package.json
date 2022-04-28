@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/deivrs60/ubiquitous-umbrella-social-network-API/issues"
   },
-  "homepage": "https://github.com/deivrs60/ubiquitous-umbrella-social-network-API#readme"
+  "homepage": "https://github.com/deivrs60/ubiquitous-umbrella-social-network-API#readme",
+  "dependencies": {
+    "express": "^4.18.0"
+  }
 }
