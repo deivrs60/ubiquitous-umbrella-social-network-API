@@ -5,7 +5,7 @@ const ReactionSchema = new Schema(
     {
         // set custom reactionId to differentiate with parent thought id
         reactionId: {
-            type: Schema.Types.Object.Id()
+            type: Schema.Types.ObjectId()
         },
         reactionBody: {
             type: String,
