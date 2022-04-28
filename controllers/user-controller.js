@@ -51,7 +51,10 @@ const userController = {
 
     // PUT: update a user by its id
     updateUser({ params, body}, res) {
-        User.findOneAndUpdate({ _id: params.id }, body, { new: true, runValidators: true })
+        User.findOneAndUpdate(
+            { _id: params.id },
+            body,
+            { new: true, runValidators: true })
             .then(dbUserData => {
                 if(!dbUserData) {
                     res.status(404).json({ message: 'No user with this ID was found.'});
@@ -69,9 +72,9 @@ const userController = {
             .then(dbUserData => res.json(dbUserData))
             .catch(err => res.json(err));
     },
+    
 
-
-    /////////////////
+    //////// /api/users/:userId/friends/:friendId ///////
 
     //POST: add a friend to friend's list
     addFriend({ params }, res) {
@@ -81,8 +84,10 @@ const userController = {
             { $addToSet: { friends: params.friendId } },
             { new: true }
         ).then((dbUserData) => {
-            if (!dbUserData)
-            return res.status(404).json({ message: 'No user with this ID was found' });
+            if (!dbUserData) {
+             res.status(404).json({ message: 'No user with this ID was found' });
+             return;
+            }
         })
         .catch((err) => res.status(400).json(err));
     },
@@ -98,7 +103,7 @@ const userController = {
                 res.status(404).json({ message: 'No user with ID was found' });
                 return;
             }
-            res.json(dbUswerData);
+            res.json(dbUserData);
         })
         .catch(err => res.status(400).json(err));
     }
