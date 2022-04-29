@@ -18,7 +18,8 @@
   *[Questions](#questions)
 
 
-
+  ## Link to Video Walkthrough ##
+  https://drive.google.com/file/d/1VEBRkIxcJ3UUSabsE4aqpw_tf1l1xI9P/view
 
   ## Description ##
   A Social Network back-end API where users can share thoughts, react to friends' thoughts, and create a friend list. It is created using a NoSQL database in order to handle large amounts of unstructured data! 
