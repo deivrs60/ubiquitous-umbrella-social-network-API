@@ -28,7 +28,7 @@ const userController = {
             })
             .select('-__v')
             .then((dbUserData) => {
-                if(!UserData) {
+                if(!dbUserData) {
                     res.status(404).json({ message: "No user with this ID was found."});
                     return;
                 }
@@ -81,13 +81,13 @@ const userController = {
         console.log(params);
         User.findOneAndUpdate(
             {_id: params.userId },
-            { $addToSet: { friends: params.friendId } },
+            { $push: { friends: params.friendId } },
             { new: true }
         ).then((dbUserData) => {
             if (!dbUserData) {
-             res.status(404).json({ message: 'No user with this ID was found' });
-             return;
+            res.status(404).json({ message: 'No user with this ID was found' });
             }
+            res.json(dbUserData);
         })
         .catch((err) => res.status(400).json(err));
     },
